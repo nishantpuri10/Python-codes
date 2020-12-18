@@ -1,0 +1,28 @@
+def findLargest(arr, nRows, mCols):
+    flag=1
+    largestSum = -2147483648
+    index = 0
+
+    for i in range(nRows):
+        rowSum = 0
+        for j in range(mCols):
+            rowSum += arr[i][j]
+
+        if rowSum > largestSum:
+            largestSum = rowSum
+            index = i
+
+    for j in range(mCols):
+        colSum = 0
+        for i in range(nRows):
+            colSum += arr[i][j]
+        
+        if colSum > largestSum:
+            largestSum = colSum
+            index = j
+            flag = 0
+
+    if (flag==1):
+        print("row " + str(index) + " " + str(largestSum))
+    else:
+        print("column " + str(index) + " " + str(largestSum))
